@@ -186,13 +186,13 @@ int parse_uri(char *uri, char *filename, char *cgiargs)
       
       if (ptr)                          // ?가 있다면    
       {
-        strcpy(cgiargs, ptr+1);         // ? 다음의 문자들을 cgiargs로 복사 (uri: /cgi-bin/new_adder?fnum=3&snum=7) ->cgiargs: fnum=3&snum=7
+        strcpy(cgiargs, ptr+1);         // ? 다음의 문자들을 cgiargs로 복사 (uri: /cgi-bin/new_adder?fnum=3&snum=7) ->cgiargs: fnum=3&snum=7 (uri: /cgi-bin/adder?3&7) ->cgiargs: 3&7
         *ptr = '\0';                    // ?를 NULL 문자로 바꿈
       }
       else                              // ?가 없다면
         strcpy(cgiargs, "");            // cgiargs는 없음
       strcpy(filename, ".");            
-      strcat(filename, uri);            // filename: ./cgi-bin/new_adder  
+      strcat(filename, uri);            // filename: ./cgi-bin/new_adder  filename: ./cgi-bin/adder
       return 0;
     }
   #else
