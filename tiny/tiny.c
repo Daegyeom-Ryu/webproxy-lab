@@ -170,7 +170,7 @@ int parse_uri(char *uri, char *filename, char *cgiargs)
       strcpy(filename, ".");
       strcat(filename, uri);
       if (uri[strlen(uri)-1] == '/')    // uri: /
-        strcat(filename, "home.html");  // filename: home.html 
+        strcat(filename, "home.html");  // filename: ./home.html 
       else
       { 
         uri = uri + strlen(uri) -5;     
@@ -202,7 +202,7 @@ int parse_uri(char *uri, char *filename, char *cgiargs)
       strcpy(filename, ".");
       strcat(filename, uri);
       if (uri[strlen(uri)-1] == '/')    // uri: /
-        strcat(filename, "home.html");  // filename: home.html   
+        strcat(filename, "home.html");  // filename: ./home.html   
       return 1;                         
     }
     /* Dynamic content */
